@@ -1,0 +1,326 @@
+/* styles.css */
+:root {
+    --primary-color: #003366;
+    --secondary-color: #014c72;
+    --text-color: #fff;
+    --background-color: #f4f4f4;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: var(--background-color);
+    color: var(--primary-color);
+    margin-top: 80px; 
+
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: var(--background-color);
+    color: var(--primary-color);
+    z-index: 1000; /* Garante que o navBar fique acima de outros elementos */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra sutil */
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+
+.logo {
+    padding-left: 2rem;
+}
+
+.logo img {
+    height: auto;
+    max-height: 120px; /* Altura máxima em telas grandes */
+    width: auto;
+}
+
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #003366;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: #0066cc; /* Cor ao passar o mouse */
+}
+
+/* Responsividade */
+@media screen and (max-width: 768px) {
+    .logo img {
+        max-height: 40px; /* Altura menor para telas pequenas */
+    }
+
+    nav ul {
+        gap: 1rem; /* Ajusta o espaçamento entre os itens */
+    }
+
+    nav ul li a {
+        font-size: 0.9rem; /* Reduz um pouco o tamanho do texto */
+    }
+}
+
+section {
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+/* Estilo da seção #home */
+#home {
+    display: flex;
+    align-items: center; /* Centraliza verticalmente o conteúdo */
+    justify-content: space-between;
+    background-color: #014c72; /* Cor de fundo */
+    color: #ffffff; /* Cor do texto */
+    padding: 1rem 2rem 2rem 2rem;
+    position: relative; /* Permite posicionamento absoluto da imagem */
+    min-height: 300px; /* Altura mínima */
+    overflow: visible; /* Permite que a imagem saia da seção */
+}
+
+/* Texto alinhado à esquerda */
+#home .content {
+    max-width: 60%; /* Limita a largura do texto */
+    text-align: left;
+    z-index: 1; /* Garante que o texto fique acima da imagem */
+}
+
+#home .content h1 {
+    font-size: 4rem; /* Tamanho do título */
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+#home .content p {
+    font-size: 1.2rem; /* Tamanho do parágrafo */
+    margin: 0;
+}
+
+/* Imagem à direita, saindo parcialmente para baixo */
+#home .image-container {
+    position: absolute; /* Posicionamento absoluto */
+    right: 2rem; /* Fixa a imagem à direita da seção */
+    bottom: -100px; /* Faz a imagem sair parcialmente para baixo */
+    width: 40%; /* Define a largura da imagem */
+    max-width: 600px; /* Limita o tamanho máximo da imagem */
+    border-radius: 20px; /* Cantos arredondados */
+    overflow: hidden; /* Garante que o arredondamento funcione */
+}
+
+#home .image-container img {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Ajusta a imagem para preencher o contêiner */
+}
+
+/* Responsividade */
+@media screen and (max-width: 768px) {
+    #home {
+        flex-direction: column; /* Empilha o texto e a imagem */
+        text-align: center;
+    }
+
+    #home .content {
+        max-width: 100%; /* O texto ocupa toda a largura */
+    }
+
+    #home .image-container {
+        position: relative; /* Remove o posicionamento absoluto em telas menores */
+        bottom: 0; /* Remove o deslocamento */
+        right: 0;
+        width: 100%; /* A imagem ocupa toda a largura */
+        max-width: none; /* Remove o limite de largura */
+    }
+}
+
+/* #perspectives {
+    padding-top: 8rem;
+} */
+
+
+/* Cards Section */
+#perspectives {
+    text-align: center;
+    padding: 40px 20px;
+    padding-top: 8rem;
+    background-color: #f8f9fa; /* Fundo claro para destacar os cards */
+}
+
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    color: #014c72; /* Cor do texto para harmonia com o design */
+    width: 250px;
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card img {
+    width: 220px; /* Aumentado para um tamanho maior */
+    height: 220px;
+    margin: 10px 0; /* Espaçamento entre o título e o texto */
+    object-fit: contain; /* Mantém a proporção da imagem */
+    border-radius: 10px; /* Opcional: para bordas arredondadas */
+}
+
+.card h3 {
+    margin-top: 0;
+    font-size: 1.5rem;
+}
+
+.card p {
+    font-size: 1rem;
+    color: #555;
+    text-align: center;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+#bar-chart {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+#pie-chart, #force-graph {
+    display: flex;                 /* Aplica flexbox */
+    justify-content: center;       /* Alinha horizontalmente */
+    align-items: center;           /* Alinha verticalmente */
+    height: 100%;                  /* Ajuste a altura da div */
+    width: 100%;                   /* Ajuste a largura da div */
+    position: relative;            /* Garante que o conteúdo dentro seja posicionado corretamente */
+}
+
+svg {
+    max-width: 100%;               /* Impede que o SVG ultrapasse a largura */
+    max-height: 100%;              /* Impede que o SVG ultrapasse a altura */
+    width: auto;                   /* Ajuste a largura automaticamente */
+    height: auto;                  /* Ajuste a altura automaticamente */
+}
+
+#bubble {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0;
+    width: 100%;
+    height: 500px;
+}
+
+#pie-chart {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+#pie-chart svg {
+    padding: 0;
+}
+
+#force-graph {
+    width: 100%;
+    height: 600px;
+    margin: 2rem 0;
+}
+
+#contact {
+    background: linear-gradient(135deg, #014c72, #0288d1); /* Gradiente de fundo */
+    padding: 50px 20px; /* Espaçamento interno */
+    text-align: center; /* Centraliza o conteúdo */
+    color: #ffffff; /* Cor padrão do texto */
+}
+
+#contact h2 {
+    font-size: 2rem; /* Tamanho do título */
+    color: #ffffff; /* Cor do título */
+    margin-bottom: 20px; /* Espaçamento inferior */
+}
+
+#contact p {
+    font-size: 1rem; /* Tamanho do texto */
+    color: #d1e7ff; /* Cor mais clara para o texto descritivo */
+    margin-bottom: 30px; /* Espaçamento inferior */
+    line-height: 1.5; /* Altura da linha */
+}
+
+#contact form {
+    max-width: 600px; /* Limita a largura do formulário */
+    margin: 0 auto; /* Centraliza o formulário */
+}
+
+#contact input,
+#contact textarea {
+    width: 100%; /* Faz os campos ocuparem toda a largura disponível */
+    padding: 10px; /* Espaçamento interno dos campos */
+    margin-bottom: 15px; /* Espaçamento inferior */
+    border: 1px solid #0288d1; /* Borda combinando com o gradiente */
+    border-radius: 5px; /* Arredonda os cantos */
+    font-size: 1rem; /* Tamanho do texto nos campos */
+    background-color: #ffffff; /* Fundo branco para os campos */
+    color: #014c72; /* Cor do texto nos campos */
+}
+
+#contact input::placeholder,
+#contact textarea::placeholder {
+    color: #666; /* Cor dos placeholders */
+}
+
+#contact button {
+    background-color: #28a745; /* Cor do botão (destaque do gradiente) */
+    color: #ffffff; /* Cor do texto no botão */
+    padding: 10px 20px; /* Espaçamento interno */
+    border: none; /* Remove a borda */
+    border-radius: 5px; /* Arredonda os cantos */
+    cursor: pointer; /* Adiciona o cursor de clique */
+    font-size: 1rem; /* Tamanho do texto */
+    transition: background-color 0.3s ease; /* Animação de transição */
+}
+
+#contact button:hover {
+    background-color: #1e7a34; /* Cor do botão no hover */
+}
+
+
+
+footer {
+    text-align: center;
+}
